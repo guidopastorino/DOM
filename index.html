@@ -1,64 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no">
-  <link rel="stylesheet" href="styles.css">
-  <title>DOM min 15 historial last vid</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no">
+    <link rel="stylesheet" href="styles.css">
+    <title>DOM min 15 historial last vid</title>
+    <style>
+        :root {
+            --yellow-color: #efd81d;
+            --dark-color: #222;
+        }
+
+        .card {
+            display: inline-block;
+            background-color: var(--dark-color);
+            color: var(--yellow-color);
+        }
+
+        .card figcaption {
+            padding: 1rem;
+        }
+
+        .rotate-45 {
+            transform: rotate(45deg);
+        }
+
+        .rotate-135 {
+            transform: rotate(135deg);
+        }
+
+        .opacity-80 {
+            opacity: .8;
+        }
+
+        .sepia {
+            filter: sepia(1);
+        }
+    </style>
 </head>
+
 <body>
 
-  <header id="header">
-    <h1>DOM</h1>
-  </header>
-  <hr>
-  <nav class="nav">
-    <ul>
-      <li><a class="link" href="#" data-desc="hola soy un parrafo">item 1</a></li>
-      <li><a class="link" href="#">item 2</a></li>
-      <li><a class="link" href="#">item 3</a></li>
-      <li><a class="link" href="#">item 4</a></li>
-      <li><a class="link" href="#">item 5</a></li>
-    </ul>
-    <a class="link-dom" data-id="1" data-description="This is a random link" href="#" style="background-color: #38529a; color: #fff; padding: 3px;">RANDOM LINK</a>
-  </nav>
-  <hr>
-  <main id="main">
-    <section id="section-1" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
-      <article class="article">
-        <figure>
-          <img id="img" src="https://placeimg.com/300/300/animals" alt="animals">
-          <figcaption id="figcap">My pet :)</figcaption>
-        </figure>
-      </article>
+    <header id="header">
+        <h1>DOM</h1>
+    </header>
+    <hr>
+    <nav class="nav">
+        <ul>
+            <li><a class="link" href="#" data-desc="hola soy un parrafo">item 1</a></li>
+            <li><a class="link" href="#">item 2</a></li>
+            <li><a class="link" href="#">item 3</a></li>
+            <li><a class="link" href="#">item 4</a></li>
+            <li><a class="link" href="#">item 5</a></li>
+        </ul>
+        <a class="link-dom" data-id="1" data-description="This is a random link" href="#"
+            style="background-color: #38529a; color: #fff; padding: 3px;">RANDOM LINK</a>
+    </nav>
+    <hr>
+    <main id="main">
+        <section id="section-1">
+            <article class="article">
+                <figure class="card">
+                    <img id="img" src="https://placeimg.com/300/300/animals" alt="animals">
+                    <figcaption>My pet :)</figcaption>
+                </figure>
+            </article>
 
-      <article class="article">
-        <figure>
-          <img id="img" src="https://placeimg.com/300/300/animals" alt="animals">
-          <figcaption>My pet :)</figcaption>
-        </figure>
-      </article>
+            <article class="article">
+                <figure class="card">
+                    <img id="img" src="https://placeimg.com/300/300/animals" alt="animals">
+                    <figcaption>My pet :)</figcaption>
+                </figure>
+            </article>
 
-      <article class="article">
-        <figure>
-          <img id="img" src="https://placeimg.com/300/300/animals" alt="animals">
-          <figcaption>My pet :)</figcaption>
-        </figure>
-      </article>
-    </section>
+            <article class="article">
+                <figure class="card">
+                    <img id="img" src="https://placeimg.com/300/300/animals" alt="animals">
+                    <figcaption>My pet :)</figcaption>
+                </figure>
+            </article>
+        </section>
 
-    <section id="section-2">
-      <p class="parrafo" name="parra">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, fuga! Sit nemo commodi nihil pariatur, doloribus praesentium veniam libero vero perspiciatis sed, hic assumenda fugit aliquid numquam sunt consequatur corporis!</p>
-      <p class="parrafo" name="parra">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, fuga! Sit nemo commodi nihil pariatur, doloribus praesentium veniam libero vero perspiciatis sed, hic assumenda fugit aliquid numquam sunt consequatur corporis!</p>
-      <p class="parrafo" name="parra">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, fuga! Sit nemo commodi nihil pariatur, doloribus praesentium veniam libero vero perspiciatis sed, hic assumenda fugit aliquid numquam sunt consequatur corporis!</p>
-    </section>
-  </main>
-  <hr>
-  <footer id="footer">
-    <span class="copy">Copyright &copy; 2022</span>
-  </footer>
-  
-  <script src="script.js"></script>
+        <section id="section-2">
+            <p class="parrafo" name="parra">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, fuga! Sit
+                nemo commodi nihil pariatur, doloribus praesentium veniam libero vero perspiciatis sed, hic assumenda
+                fugit aliquid numquam sunt consequatur corporis!</p>
+            <p class="parrafo" name="parra">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, fuga! Sit
+                nemo commodi nihil pariatur, doloribus praesentium veniam libero vero perspiciatis sed, hic assumenda
+                fugit aliquid numquam sunt consequatur corporis!</p>
+            <p class="parrafo" name="parra">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, fuga! Sit
+                nemo commodi nihil pariatur, doloribus praesentium veniam libero vero perspiciatis sed, hic assumenda
+                fugit aliquid numquam sunt consequatur corporis!</p>
+        </section>
+    </main>
+    <hr>
+    <footer id="footer">
+        <span class="copy">Copyright &copy; 2022</span>
+    </footer>
+
+    <script src="index.js"></script>
 </body>
+
 </html>
