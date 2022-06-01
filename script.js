@@ -92,8 +92,6 @@
 
 
 
-
-
 // ------------------------------------------
 // CLASES CSS
 
@@ -117,3 +115,34 @@ console.log($card.classList)
 $card.classList.replace('rotate-45', 'rotate-135') // va la clase a reemplazar y luego la clase que se agrega
 
 console.log($card.classList.item(1)) // devuelve en cadena de texto el nombre de la clase que se encuentra en esa posición
+
+
+
+
+
+// ------------------------------------------
+// ETIQUETAS Y TEXTO HTML
+const $content = document.querySelector('.content')
+
+// Introduce unicamente texto
+$content.textContent = 'Holaaaaa'
+
+// Introduce etiquetas HTML dentro del elemento seleccionado
+$content.innerHTML = `
+<ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li>item 4</li>
+    <li>item 5</li>
+</ul>
+`
+
+// Reemplaza el elemento seleccionado por el contenido establecido
+$content.outerHTML = `
+<p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+`
+
+
+
+// ------------------------------------------
