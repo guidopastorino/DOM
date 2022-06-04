@@ -159,3 +159,78 @@ console.log($cards.parentElement) // Devuelve el elemento padre
 console.log($cards.nextElementSibling) // Devuelve el siguiente elemento hermano 
 console.log($cards.previousElementSibling) // Devuelve el anterior elemento hermano 
 console.log($cards.closest('#main')) // Verifica si tiene un ansestro (padre) con el elemento que le especifiquemos más cercano
+
+
+
+
+
+
+// ------------------------------------------
+const $sectionParent = document.querySelector('#section-1') // Elemento de donde van a colgar todas las targetas 
+// CREAR ELEMENTOS Y FRAGMENTOS EN EL DOM
+
+// Node.removeChild
+// Node.replaceChild
+// Node.insertBefore
+// Node.hasChildNodes
+// ParentNode.append()
+
+// CREAR UN ELEMENTO
+// Se crea todo desde el documento
+
+// createElement: Crea un nuevo elemento
+const $figure = document.createElement('figure')
+const $img = document.createElement('img')
+const $figcaption = document.createElement('figcaption')
+
+
+// createTextNode: Crea un texto
+const $figcaptionText = document.createTextNode('My Pet :)')
+
+
+// Se le agrega un hijo
+$sectionParent.appendChild($figure)
+$figure.appendChild($img)
+$figure.appendChild($figcaption)
+$figcaption.appendChild($figcaptionText)
+
+
+$figure.classList.add('card')
+$img.setAttribute('src', 'https://placeimg.com/300/300/animals')
+$img.setAttribute('alt', 'animals')
+
+
+
+// OTRAS FORMAS DE INSERTAR ITERANDO
+
+let programLangs = ['Java', 'Python', 'C#', 'Kotlin', 'PHP', 'Javascript']
+
+const $ul = document.createElement('ul')
+document.body.appendChild($ul)
+
+programLangs.forEach(lang => {
+    const $li = document.createElement('li')
+    $li.textContent = lang
+    $ul.appendChild($li)
+});
+
+
+
+// OTRAS FORMAS DE INSERTAR CREANDO FRAGMENTOS
+
+document.write(`<h1>Fragmentos</h1>`)
+
+let programLangs = ['Java', 'Python', 'C#', 'Kotlin', 'PHP', 'Javascript']
+
+const $ul = document.createElement('ul')
+document.body.appendChild($ul)
+
+const $fragment = document.createDocumentFragment();
+
+programLangs.forEach(lang => {
+    const $li = document.createElement('li')
+    $li.textContent = lang
+    $fragment.appendChild($li)
+});
+
+$ul.appendChild($fragment)
