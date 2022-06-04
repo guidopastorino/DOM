@@ -146,3 +146,16 @@ $content.outerHTML = `
 
 
 // ------------------------------------------
+// DOM TRAVERSING (Recorrriendo el DOM)
+
+const $cards = document.querySelector('.cards')
+
+console.log($cards.childElementCount) // Devuelve un numero de cuantos elementos hijos tiene
+console.log($cards.children) // Devuelve los elementos hijos que tiene
+console.log($cards.children[1]) // Devuelve un elemento hijo en especifico
+console.log($cards.firstElementChild) // Devuelve el primer hijo 
+console.log($cards.lastElementChild) // Devuelve el ultimo hijo 
+console.log($cards.parentElement) // Devuelve el elemento padre
+console.log($cards.nextElementSibling) // Devuelve el siguiente elemento hermano 
+console.log($cards.previousElementSibling) // Devuelve el anterior elemento hermano 
+console.log($cards.closest('#main')) // Verifica si tiene un ansestro (padre) con el elemento que le especifiquemos más cercano
