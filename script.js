@@ -271,3 +271,47 @@ cardsCategories.forEach(element => {
 });
 
 $section.appendChild($fragmento)
+
+
+
+
+
+
+
+// ------------------------------------------
+// MODIFICAR ELEMENTOS
+
+const $section = document.querySelector('#section-1')
+const $figure = document.createElement('figure')
+
+// para clonar un elemento y su contenido
+const $sectionClone = $section.cloneNode(true)
+document.body.appendChild($sectionClone)
+
+$figure.classList.add('card')
+
+$figure.innerHTML = `
+    <img
+    id="img"
+    src="https://placeimg.com/300/300/any"
+    alt="any"
+    />
+    <figcaption>ANY</figcaption>
+`
+
+// replaceChild(nuevoNodo, nodoReemplazar)
+$section.replaceChild($figure, $section.firstElementChild)
+
+// removeChild(hijoEliminar)
+$section.removeChild($section.lastElementChild)
+
+// insertBefore(nodoInsertar, nodoReferenciaPosicion)
+$section.insertBefore($figure, $section.children[0])
+
+
+
+
+
+
+
+// ------------------------------------------
