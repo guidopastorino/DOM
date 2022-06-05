@@ -234,3 +234,40 @@ programLangs.forEach(lang => {
 });
 
 $ul.appendChild($fragment)
+
+
+
+
+
+
+// ------------------------------------------
+// TEMPLATES
+<template>
+    /* contenido a clonar */
+</template>
+
+
+const $section = document.querySelector('#section-1')
+const $cardTemplate = document.querySelector('#card-template').content // el .content hace referencia al contenido
+const $fragmento = document.createDocumentFragment()
+
+let cardsCategories = [
+    {title: 'Mi Mascota 1 :)', img: 'https://placeimg.com/300/300/animals'},
+    {title: 'Mi Mascota 2 :)', img: 'https://placeimg.com/300/300/animals'},
+    {title: 'Mi Mascota 3 :)', img: 'https://placeimg.com/300/300/animals'},
+    {title: 'Mi Mascota 4 :)', img: 'https://placeimg.com/300/300/animals'},
+    {title: 'Mi Mascota 5 :)', img: 'https://placeimg.com/300/300/animals'},
+]
+
+cardsCategories.forEach(element => {
+    $cardTemplate.querySelector('img').setAttribute('src', element.img)
+    $cardTemplate.querySelector('img').setAttribute('alt', element.title)
+    $cardTemplate.querySelector('figcaption').textContent = element.title
+
+    // se utiliza este metodo para que cada objeto tenga su propia targeta
+    let $clon = document.importNode($cardTemplate, true) // true clona su contenido false solo la etiqueta
+
+    $fragmento.appendChild($clon)
+});
+
+$section.appendChild($fragmento)
