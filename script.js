@@ -315,3 +315,64 @@ $section.insertBefore($figure, $section.children[0])
 
 
 // ------------------------------------------
+// MODIFICAR ELEMENTOS v.2
+
+// Métodos del elemento (insertarElemento)
+    // - Insertar contenido HTML dentro de un elemento: insertAdjacentHTML('posición', HTML)
+    // - Insertar un elemento dentro de un elemento: insertAdjacentElement('posición', elemento)
+    // - Insertar texto dentro de un elemento: insertAdjacentText('posición', texto)
+
+// Valores de posiciones (Posicion)
+    // - beforebegin: Hermano anterior
+    // - afterbegin: Primer hijo
+    // - beforeend: Ultimo hijo
+    // - afterend: Hermano posterior
+
+
+// ELEMENTO OBJETIVO: section-1
+const $section = document.querySelector('#section-1')
+const $newCard = document.createElement('figure')
+const $newCardContent = `
+    <img
+    id="img"
+    src="https://placeimg.com/300/300/animals"
+    alt="animals"
+    />
+    <figcaption></figcaption>
+`
+
+$newCard.classList.add('card')
+$newCard.insertAdjacentHTML('afterbegin', $newCardContent)
+
+// adding text to figcaption
+$newCard.querySelector('figcaption').insertAdjacentText('beforeend','Nuevo elemento')
+
+$section.insertAdjacentElement('afterbegin', $newCard)
+
+
+// ===============
+// Opciones extra (jQuery version)
+// Sería una forma más reducida de las versiones de posiciones e insert anteriores
+
+// prepend: Antes del primer hijo
+// append: Despues del ultimo hijo
+// before: Hermano anterior
+// after: Hermano posterior
+
+$section.prepend($newCard)
+$section.append($newCard)
+$section.before($newCard)
+$section.after($newCard)
+
+// adding text to figcaption with short method
+$newCard.querySelector('figcaption').prepend('Nuevo elemento')
+
+
+
+
+
+
+
+
+
+// ------------------------------------------
