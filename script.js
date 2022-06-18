@@ -375,4 +375,108 @@ $newCard.querySelector('figcaption').prepend('Nuevo elemento')
 
 
 
+
 // ------------------------------------------
+
+// EVENTOS
+
+// Los eventos son la manera que tenemos en Javascript de controlar las acciones de los usuarios y definir un comportamiento de la página cuando se produzcan. Cuando un usuario visita una página web e interactúa con ella se producen los eventos y con Javascript podemos definir qué queremos que ocurra cuando se produzcan los eventos.
+
+// Conceptos básicos de los eventos:
+  // - Evento: Es el evento que ocurrirá cuando el usuario haga la acción que nosotros indiquemos e interactúe con la web
+  // - Tipo de evento: Es el tipo de evento ejecutado, ej, si el usuario dió click, el tipo de evento será "click" 
+  // - Manejador: Es el comportamiento que nosotros pondemos asignar como respuesta a un evento.
+
+
+// Existen 3 fases que ocurren al invocar un evento:
+  // - Fase de Captura: El evento se dirige al elemento para capturarlo
+  // - Fase de Objetivo (target): El evento localizó al elemento disparador del evento
+  // - Fase de burbujeo o propagación (bubbling - propagation): El evento se propaga (o expande) hasta el elemento padre
+
+
+
+const btnAumentar = document.querySelector('#btn-aumentar')
+const btnDisminuir = document.querySelector('#btn-disminuir')
+const spanContador = document.querySelector('#contador')
+
+let num = 0
+
+// AÑADIR EVENTOS MANUALMENTE (A CADA BOTÓN)
+btnAumentar.addEventListener('click', () => {
+    num++    
+    spanContador.textContent = num
+})
+
+btnDisminuir.addEventListener('click', () => {
+    num--    
+    spanContador.textContent = num
+})
+
+
+
+
+// EVENT DELEGATION 
+// La delegacion de eventos consiste en declarar un evento en el contenedor padre para, que a través de comprovaciones, capturarlo en un elemnto hijo y que se ejecute
+// El elemento container va a recibir como parametro el evento en si, que se declara con la "e"
+
+const $container = document.querySelector('#container')
+
+// declarando evento a contenedor padre
+$container.addEventListener('click', (e) => {
+    // comprobando si el elemento que le damos click sean los botones que cumplan la condicion
+    // la condicion puede ser de atributos, clases, tagName, etc...
+    if(e.target.getAttribute('id') == 'btn-aumentar'){
+        num++
+        spanContador.textContent = num
+    }
+
+    if(e.target.getAttribute('id') == 'btn-disminuir'){
+        num--
+        spanContador.textContent = num
+    }
+})
+
+
+
+
+// stopPropagation
+// Evita que el evento se propague y cancela las fases de captura y burbuja del evento, haciendo que se ejecute en ese mismo elemento
+
+const $padre = document.querySelector('.padre')
+const $hijo = document.querySelector('.hijo')
+
+$padre.addEventListener('click', (e) => {
+  console.log(`Estás en el contenedor ${e.target.classList[0]}`)
+})
+$hijo.addEventListener('click', (e) => {
+  console.log(`Estás en el contenedor ${e.target.classList[0]}`)
+  e.stopPropagation()
+})
+
+
+// Otra forma llamando funciones como parametros de eventos:
+
+function sendEventInfo(e){
+  console.log(`Estás en el contenedor ${e.target.classList[0]}`)
+  e.stopPropagation()
+}
+
+$padre.addEventListener('click', sendEventInfo)
+$hijo.addEventListener('click', sendEventInfo)
+
+
+
+
+// preventDefault
+// Elimina el comportamiento por defecto que realiza el navegador al hacer x accion en un elemento
+const $form = document.querySelector('form')
+
+$form.addEventListener('submit', (e) => {
+  console.log(`Su nombre es: ${$form.querySelector('input').value}`)
+  $form.querySelector('button').setAttribute('disabled', '')
+  alert('Se han enviado exitosamente los datos!')
+  $form.reset()
+  e.preventDefault()
+})
+
+// Pero esto ocasiona que al no poderse recargar la página devuelta no se van a poder enviar más datos a la base de datos, por lo cual habrá que recargar la página
