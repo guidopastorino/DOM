@@ -480,3 +480,43 @@ $form.addEventListener('submit', (e) => {
 })
 
 // Pero esto ocasiona que al no poderse recargar la página devuelta no se van a poder enviar más datos a la base de datos, por lo cual habrá que recargar la página
+
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// BOM
+// Browser Object Model
+// Cada uno tiene sus propios métodos
+
+// URL, Historial, Navegador
+// Location, History, Navigator
+
+// Location
+console.log(location)
+
+
+// History
+console.log(history)
+
+
+// Navigator
+console.log(navigator)
+
+
+
+
+
+
+
+
+
+
+
